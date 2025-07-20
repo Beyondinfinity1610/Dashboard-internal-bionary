@@ -1,0 +1,299 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Bionary Leaderboard</title>
+  <style>
+    body {
+      background: #100f22;
+      color: white;
+      font-family: sans-serif;
+      padding: 20px;
+    }
+
+    h1 {
+      color: #c084fcd4;
+      text-align: center;
+      text-shadow: 0 0 10px #a955f771;
+      font-size: 50px;
+    }
+
+    h2 {
+      font-family: 'Poppins', sans-serif;
+      color: #d8b4fe;
+      text-align: center;
+      font-weight: 600;
+    }
+
+    h3 {
+      font-family: 'Poppins', sans-serif;
+      color: #94a3b8;
+      text-align: center;
+      font-weight: 500;
+    }
+
+    .filters {
+      margin: 20px auto;
+      max-width: 500px;
+    }
+
+    select {
+      padding: 10px;
+      margin-top: 10px;
+      width: 100%;
+      border-radius: 5px;
+      border: none;
+      background-color: #2a2a40;
+      color: white;
+    }
+
+    button {
+      background-color: #d4a5ff;
+      color: white;
+      font-weight: bold;
+      cursor: pointer;
+    }
+
+    table {
+      width: 100%;
+      margin-top: 20px;
+      border-collapse: separate;
+      border-spacing: 0 10px; 
+    }
+
+    th, td {
+      background-color: #2a2a40; 
+      padding: 16px 10px; 
+      text-align: center;
+      font-size: 20px;
+      
+      
+    }
+
+    th {
+      background-color: #3b3b5c; 
+    }
+
+    tr:nth-child(even) td {
+      background-color: #1e1e2f; 
+    }
+
+    .message {
+      margin-top: 10px;
+      color: lightgreen;
+      text-align: center;
+    }
+
+    .filter-container {
+      height: 65px;
+      padding-left: 100px; padding-right: 100px;
+      margin: 30px auto;
+      
+      border: 2px solid #a855f7;
+      border-radius: 15px;
+      box-shadow: 0 0 8px #a855f7, 0 0 15px #9333ea;
+      background-color: #100f22;
+      display: flex;
+    }
+
+    .filter-title {
+      font-family: 'Poppins', sans-serif;
+      font-size: 16px;
+      color: #d8b4fe;
+      text-align: center;
+      margin-bottom: 10px;
+    }
+
+    .filter-row select {
+      background-color: #2a2a40;
+      color: white;
+      border: none;
+      border-radius: 8px;
+      padding: 10px;
+      width: 240px;
+      box-shadow: 0 0 5px #9333ea;
+    }
+
+    
+    .gold, .platinum, .diamond, .silver, .bronze {
+      padding: 2px 12px;
+      border-radius: 15px;
+      font-weight: bold;
+      font-size: 14px;
+      display: inline;
+      vertical-align: middle;
+      white-space: nowrap;
+      margin: 0;
+      box-shadow: none;
+      color: white; 
+      text-shadow: 0 0 4px rgba(0,0,0,0.3);
+    }
+
+    .gold {
+      background-image: linear-gradient(to right, #ffed68, #facc15);
+      color: #1a1a00;
+      text-shadow: none;
+    }
+
+    .platinum {
+      background-color: #6b7280;
+      color: #ffffff;
+      text-shadow: 0 0 4px #e5e7eb99;
+    }
+
+    .diamond {
+      background-color: #2563eb;
+      color: #ffffff;
+      text-shadow: 0 0 4px #60a5fa88;
+    }
+
+    .silver {
+      background-color: #9ca3af;
+      color: #fefefe;
+      text-shadow: 0 0 4px #c0c0c0aa;
+    }
+
+    .bronze {
+      background-color: #92400e;
+      color: #ffffff;
+      text-shadow: 0 0 4px #cd7f32aa;
+    }
+    .rank-cell {
+  font-family: 'Courier New', monospace; /* or any font you like */
+  font-weight: bold;
+  font-size: 35px;
+  color: #facc15; /* optional: golden yellow */
+}
+
+
+  </style>
+  <link href="https://fonts.googleapis.com/css2?family=Poppins&display=swap" rel="stylesheet">
+</head>
+
+<body>
+  <div>
+    <h1 style="margin: 0%;">🏆 Bionary Leaderboard</h1>
+    <h2 style="margin: 0%;">Coding Champions</h2>
+    <h3 style="margin: 0%;">Premier Coding Society of VIT University</h3>
+  </div>
+  <div style=" padding-left: 100px; padding-right: 100px;">
+  <div class="filter-container">
+    <p class="filter-title" style="margin-right:auto; ">🔎 Filter Results:</p>
+    <div style="display: flex; gap: 100px;;">
+      <select id="topicFilter" style=" font-size: 20px">
+        <option value="All">All Topics</option>
+        <option>AI</option>
+        <option>Blockchain</option>
+        <option>Cybersecurity</option>
+        <option>Data Viz</option>
+        <option>Machine Learning</option>
+        <option>IOT</option>
+        <option>Robotics</option>
+        <option>Mobile Dev</option>
+        <option>Cloud Computing</option>
+        <option>UI/UX</option>
+        <option>DevOps</option>
+        <option>Game Dev</option>
+        <option>AR/VR</option>
+        <option>Web Dev</option>
+      </select>
+
+      <select id="deptFilter" style=" font-size: 20px">
+        <option value="All">All Departments</option>
+        <option>Computer Science</option>
+        <option>Data Science</option>
+        <option>Electronics</option>
+        <option>Information Technology</option>
+        <option>Software Engineering</option>
+      </select>
+    </div>
+  </div>
+</div>  
+<div style=" padding-left: 100px; padding-right: 100px;">
+  <table id="leaderboard" style="border: 2px solid #a855f7;
+  border-radius: 50px;
+  padding: 15px;
+  box-shadow: 0 0 8px #a855f7, 0 0 15px #c084fc;  padding-left: 50px; padding-right: 50px;">
+    <thead>
+      <tr>
+        <th style="border-top-left-radius: 20px;">RANK</th>
+        <th>MEMBER</th>
+        <th>DEPARTMENT</th>
+        <th>TIER</th>
+        <th>POINTS</th>
+        <th style="border-top-right-radius: 20px;">TOPIC</th>
+      </tr>
+    </thead>
+    <tbody></tbody>
+  </table>
+</div>
+  <script>
+    const members = [
+      { member: "Isha Verma", dept: "Information Technology", tier: "Platinum", points: 2400, topic: "Blockchain" },
+      { member: "Alex Chen", dept: "Computer Science", tier: "Diamond", points: 2340, topic: "Web Dev" },
+      { member: "Priya Sharma", dept: "Data Science", tier: "Platinum", points: 2105, topic: "IOT" },
+      { member: "Miguel Rodriguez", dept: "Computer Science", tier: "Gold", points: 1950, topic: "Robotics" },
+      { member: "Sarah Johnson", dept: "Electronics", tier: "Gold", points: 1820, topic: "Game Dev" },
+      { member: "Raj Patel", dept: "Information Technology", tier: "Silver", points: 1680, topic: "Blockchain" },
+      { member: "Anjali", dept: "Software Engineering", tier: "Silver", points: 1540, topic: "Cloud Computing" },
+      { member: "Emma Wilson", dept: "Computer Science", tier: "Bronze", points: 1540, topic: "Web Dev" }
+    ];
+
+    const tbody = document.querySelector("#leaderboard tbody");
+    const deptFilter = document.getElementById("deptFilter");
+    const topicFilter = document.getElementById("topicFilter");
+
+    function Leaderboard(dept = "All", topic = "All") {
+      const medals = ["🥇", "🥈", "🥉"];
+      let filtered = members;
+
+      if (dept !== "All") {
+        filtered = filtered.filter(m => m.dept === dept);
+      }
+
+      if (topic !== "All") {
+        filtered = filtered.filter(m => m.topic.toLowerCase() === topic.toLowerCase());
+      }
+
+      filtered.sort((a, b) => b.points - a.points);
+
+      tbody.innerHTML = "";
+      const maxPoints = filtered[0]?.points || 1;
+
+      filtered.forEach((m, i) => {
+        const rank = medals[i] || i + 1;
+        const percent = Math.round((m.points / maxPoints) * 100);
+        const tierClass = m.tier.toLowerCase();
+        
+
+        const row = `<tr>
+          <td class="rank-cell">${rank}</td>
+
+          <td>${m.member}</td>
+          <td>${m.dept}</td>
+          <td><span class="${tierClass}">${m.tier}</span></td>
+          <td>
+            ${m.points.toLocaleString()}
+            <div class="level-bar" style="width: 100%; background-color: #1e1e2f; border-radius: 8px; margin-top: 8px;">
+              <div style="width: ${percent}%; height: 8px; background: linear-gradient(to right, #9333ea, #c084fc); border-radius: 8px;"></div>
+            </div>
+          </td>
+          <td>${m.topic}</td>
+        </tr>`;
+        tbody.innerHTML += row;
+      });
+    }
+
+    deptFilter.addEventListener("change", () => {
+      Leaderboard(deptFilter.value, topicFilter.value);
+    });
+
+    topicFilter.addEventListener("change", () => {
+      Leaderboard(deptFilter.value, topicFilter.value);
+    });
+
+    Leaderboard();
+  </script>
+</body>
+</html>
